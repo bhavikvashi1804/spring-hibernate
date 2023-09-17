@@ -1,5 +1,7 @@
 package com.bhavik;
 
+import org.jasypt.util.text.BasicTextEncryptor;
+import org.jasypt.util.text.TextEncryptor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class App
@@ -13,5 +15,9 @@ public class App
 
         AppData appData = applicationContext.getBean(AppData.class);
         System.out.println(appData.getAppName());
+
+        System.out.println(appData.getDataSourceUserName());
+        System.out.println(appData.getDataSourcePsd());
+
     }
 }
