@@ -1,4 +1,4 @@
-package com.bhavik;
+package com.bhavik.config;
 
 import org.jasypt.properties.EncryptableProperties;
 import org.jasypt.util.text.BasicTextEncryptor;
@@ -8,8 +8,9 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.io.ClassPathResource;
 
 @Configuration
-public class AppConfig {
+public class PlaceholderConfigurer {
 
+    // Normal Properties
     @Bean
     public PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
         PropertySourcesPlaceholderConfigurer configurer = new PropertySourcesPlaceholderConfigurer();
@@ -23,6 +24,7 @@ public class AppConfig {
         return configurer;
     }
 
+    // Encrypted Properties
     @Bean
     EncryptableProperties encryptableProperties()  {
         EncryptableProperties encryptableProperties = new EncryptableProperties(getBasicTextEncryptor());
