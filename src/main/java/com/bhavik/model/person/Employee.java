@@ -4,12 +4,13 @@ package com.bhavik.model.person;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "person_tb_details")
-public class Person {
+@Table(name = "employee_tb_details")
+public class Employee {
 
     //properties
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "emp_id")
     private Long id;
     @Column(name = "first_name")
     private String firstName;
@@ -27,6 +28,19 @@ public class Person {
             @AttributeOverride( name = "pinCode", column = @Column(name = "home_pinCode")),
     })
     private Address homeAddress;
+
+
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride( name = "line1", column = @Column(name = "office_line1")),
+            @AttributeOverride( name = "line2", column = @Column(name = "office_line2")),
+            @AttributeOverride( name = "city", column = @Column(name = "office_city")),
+            @AttributeOverride( name = "district", column = @Column(name = "office_district")),
+            @AttributeOverride( name = "state", column = @Column(name = "office_state")),
+            @AttributeOverride( name = "country", column = @Column(name = "office_country")),
+            @AttributeOverride( name = "pinCode", column = @Column(name = "office_pinCode")),
+    })
+    private Address officeAddress;
 
 
     //getters & setters
@@ -62,26 +76,35 @@ public class Person {
         this.homeAddress = homeAddress;
     }
 
+    public Address getOfficeAddress() {
+        return officeAddress;
+    }
+
+    public void setOfficeAddress(Address officeAddress) {
+        this.officeAddress = officeAddress;
+    }
+
     // constructors
-    public Person(){
+    public Employee(){
 
     }
-    public Person(String firstName, String lastName, Address homeAddress){
+    public Employee(String firstName, String lastName, Address homeAddress, Address officeAddress){
         this.firstName = firstName;
         this.lastName = lastName;
         this.homeAddress = homeAddress;
+        this.officeAddress = officeAddress;
     }
 
 
     // methods
-
     @Override
     public String toString() {
-        return "Person{" +
+        return "Employee{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", homeAddress=" + homeAddress +
+                ", officeAddress=" + officeAddress +
                 '}';
     }
 }
