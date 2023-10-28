@@ -1,6 +1,7 @@
 package com.bhavik.service;
 
 
+import com.bhavik.model.guide.Guide;
 import com.bhavik.model.student.Student;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -18,14 +19,15 @@ public class StudentService {
 
     @PostConstruct
     public void insertDummyData(){
-        Student student = new Student("Bhavik","Vashi");
+        Guide guide = new Guide("Trainer 001");
+        Student student = new Student("Bhavik","Vashi", guide);
 
         Session session = null;
 
         try{
             session = sessionFactory.openSession();
             session.getTransaction().begin();
-
+            session.save(guide);
             session.save(student);
 
             session.getTransaction().commit();

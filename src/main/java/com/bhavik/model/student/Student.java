@@ -1,5 +1,6 @@
 package com.bhavik.model.student;
 
+import com.bhavik.model.guide.Guide;
 import jakarta.persistence.*;
 
 @Entity
@@ -14,6 +15,10 @@ public class Student {
     private String firstName;
     @Column(name = "last_name")
     private String lastName;
+
+    @ManyToOne
+    @JoinColumn(name = "guide_id")
+    Guide guide;
 
 
     //getters and setters
@@ -37,15 +42,21 @@ public class Student {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-
+    public Guide getGuide() {
+        return guide;
+    }
+    public void setGuide(Guide guide) {
+        this.guide = guide;
+    }
 
     // constructor
     public Student(){
 
     }
-    public Student(String firstName, String lastName){
+    public Student(String firstName, String lastName, Guide guide){
         this.firstName = firstName;
         this.lastName = lastName;
+        this.guide = guide;
     }
 
 
@@ -56,6 +67,7 @@ public class Student {
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", guide='" + guide + '\'' +
                 '}';
     }
 }
