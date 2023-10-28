@@ -16,7 +16,7 @@ public class Student {
     @Column(name = "last_name")
     private String lastName;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "guide_id")
     Guide guide;
 

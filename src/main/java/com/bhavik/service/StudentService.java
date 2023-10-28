@@ -27,15 +27,15 @@ public class StudentService {
         try{
             session = sessionFactory.openSession();
             session.getTransaction().begin();
-            session.save(guide);
-            session.save(student);
+
+            session.persist(student);
 
             session.getTransaction().commit();
 
         }
         catch (Exception exception){
             if(session != null) session.getTransaction().rollback();
-            System.out.printf("Exception : "+ exception.getMessage());
+            System.out.println("Exception : "+ exception.getMessage());
         }
         finally {
             if(session != null) session.close();
