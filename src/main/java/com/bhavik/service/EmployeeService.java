@@ -16,6 +16,10 @@ public class EmployeeService {
     SessionFactory sessionFactory;
 
     @PostConstruct
+    public void doSetUp(){
+        //doDummyInsert();
+    }
+
     public void doDummyInsert(){
 
         Address homeAddress = new Address(

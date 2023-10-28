@@ -2,11 +2,11 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="com.bhavik.model.student">
-    <class name="Student" table="student_tb_details">
-        <id name="id" column="student_id" type="java.lang.Long">
-            <generator class="native" />
-        </id>
-        <property name="firstName" type="string" column="first_name" />
-        <property name="lastName" type="string" column="last_name" />
-    </class>
+<!--    <class name="Student" table="student_tb_details">-->
+<!--        <id name="id" column="student_id" type="java.lang.Long">-->
+<!--            <generator class="native" />-->
+<!--        </id>-->
+<!--        <property name="firstName" type="string" column="first_name" />-->
+<!--        <property name="lastName" type="string" column="last_name" />-->
+<!--    </class>-->
 </hibernate-mapping>
