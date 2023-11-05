@@ -9,6 +9,7 @@ public class Student {
 
     //properties
     @Id
+    @Column(name = "student_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "first_name")
@@ -16,7 +17,7 @@ public class Student {
     @Column(name = "last_name")
     private String lastName;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     @JoinColumn(name = "guide_id")
     Guide guide;
 

@@ -19,16 +19,23 @@ public class StudentService {
 
     @PostConstruct
     public void insertDummyData(){
-        Guide guide = new Guide("Trainer 001");
-        Student student = new Student("Bhavik","Vashi", guide);
-
-        Session session = null;
+//        Guide guide = new Guide("Trainer 004");
+//        Guide guide1 = new Guide("Trainer 005");
+//        Student student = new Student("Bhavik","Vashi", guide);
+//        Student student1 = new Student("Raj", "Patel", guide1);
+//        Student student2 = new Student("Meet", "Patel", guide1);
+          Session session = null;
 
         try{
             session = sessionFactory.openSession();
             session.getTransaction().begin();
 
-            session.persist(student);
+           Guide guide2 = session.get(Guide.class, 1L);
+           Guide guide3 = session.get(Guide.class, 2L);
+
+            System.out.println(guide2 + ": " + guide2.getStudentsList());
+            System.out.println(guide3 + ": " + guide3.getStudentsList());
+
 
             session.getTransaction().commit();
 
