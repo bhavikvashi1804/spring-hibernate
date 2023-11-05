@@ -30,10 +30,8 @@ public class StudentService {
             session = sessionFactory.openSession();
             session.getTransaction().begin();
 
-            Student student = session.get(Student.class, 4L);
-            Guide guide = session.get(Guide.class, 1L);
-
-            guide.addStudent(student);
+            Student student = session.get(Student.class, 2L);
+            session.delete(student);
 
             session.getTransaction().commit();
 

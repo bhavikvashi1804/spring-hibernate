@@ -19,7 +19,7 @@ public class Guide {
     @Column(name = "guide_name")
     private String guideName;
 
-    @OneToMany(mappedBy = "guide")
+    @OneToMany(mappedBy = "guide", orphanRemoval = true)
     Set<Student> studentsList = new HashSet<>();
 
 
