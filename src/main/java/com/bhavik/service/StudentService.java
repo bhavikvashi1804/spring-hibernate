@@ -30,12 +30,10 @@ public class StudentService {
             session = sessionFactory.openSession();
             session.getTransaction().begin();
 
-           Guide guide2 = session.get(Guide.class, 1L);
-           Guide guide3 = session.get(Guide.class, 2L);
+            Student student = session.get(Student.class, 4L);
+            Guide guide = session.get(Guide.class, 1L);
 
-            System.out.println(guide2 + ": " + guide2.getStudentsList());
-            System.out.println(guide3 + ": " + guide3.getStudentsList());
-
+            guide.addStudent(student);
 
             session.getTransaction().commit();
 

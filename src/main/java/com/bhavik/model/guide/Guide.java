@@ -58,4 +58,15 @@ public class Guide {
                 ", guideName='" + guideName + '\'' +
                 '}';
     }
+
+    //helper methods
+    public void addStudent(Student student){
+        studentsList.add(student);
+        student.setGuide(this);
+    }
+
+    public void removeStudent(Student student){
+        studentsList.remove(student);
+        student.setGuide(null);
+    }
 }
