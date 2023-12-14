@@ -1,6 +1,7 @@
 //package com.bhavik.model.guide.book;
 //
-//import jakarta.persistence.*;
+//
+//import javax.persistence.*;
 //
 //@Entity
 //@Table(name = "author_tb_details")

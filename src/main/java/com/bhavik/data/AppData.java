@@ -1,4 +1,4 @@
-package com.bhavik;
+package com.bhavik.data;
 
 import org.springframework.beans.factory.annotation.Value;
 
