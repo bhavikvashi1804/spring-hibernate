@@ -27,8 +27,11 @@ public class HibernateRepo {
     @Transactional
     public void addAuthor(String authorName){
         Book b1 = entityManager.find(Book.class, new BookId("The Queen of Spades and Other Russian Stories", "English"));
+        // Assuming a constructor for AuthorId
+
         Author author = new Author(authorName);
+
         b1.addAuthor(author);
-        entityManager.persist(author);
+        entityManager.persist(b1);
     }
 }

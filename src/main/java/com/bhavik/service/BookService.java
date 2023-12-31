@@ -32,7 +32,7 @@ public class BookService {
 
     @PostConstruct
     public void doSetUp(){
-        //doDummyInsert();
+        doDummyInsert();
     }
 
 

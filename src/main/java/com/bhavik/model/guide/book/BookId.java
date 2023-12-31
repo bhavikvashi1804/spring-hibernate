@@ -1,6 +1,7 @@
 package com.bhavik.model.guide.book;
 
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import java.io.Serializable;
 import java.util.Objects;
@@ -8,9 +9,10 @@ import java.util.Objects;
 @Embeddable
 public class BookId implements Serializable {
 
-
     //properties
+    @Column(name = "title")
     private String title;
+    @Column(name = "lang")
     private String language;
 
 

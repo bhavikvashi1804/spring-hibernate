@@ -13,10 +13,8 @@ public class Book {
     private BookId bookId;
     private Long price;
 
-    @OneToMany(cascade = CascadeType.PERSIST)
+    @OneToMany(cascade = {CascadeType.ALL}, mappedBy = "book", orphanRemoval = true)
     private List<Author> authorList = new ArrayList<>();
-
-
 
     // getters and setters
     public BookId getBookId() {
@@ -59,10 +57,13 @@ public class Book {
                 '}';
     }
     public void addAuthor(Author author){
+        author.setBook(this);
         this.authorList.add(author);
     }
 
     public void removeAuthor(Author author){
+        //author.setBookId(null);
         this.authorList.remove(author);
+        author.setBook(null);
     }
 }

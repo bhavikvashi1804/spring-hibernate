@@ -8,21 +8,26 @@ public class Author {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "author_id")
-    private Long id;
-
+    private Long authorId;
     @Column(name = "author_name")
     private String name;
 
     @Column(name = "lgcl_delete")
     private Boolean active;
 
+    @ManyToOne
+    @JoinColumns({
+            @JoinColumn(name = "fk_title", referencedColumnName = "title"),
+            @JoinColumn(name = "fk_lang", referencedColumnName = "lang")
+    })
+    private Book book;
+
     // getters and setters
-    public Long getId() {
-        return id;
+    public Long getAuthorId() {
+        return authorId;
     }
-    public void setId(Long id) {
-        this.id = id;
+    public void setAuthorId(Long authorId) {
+        this.authorId = authorId;
     }
     public String getName() {
         return name;
@@ -35,6 +40,15 @@ public class Author {
     }
     public void setActive(Boolean active) {
         this.active = active;
+    }
+
+
+    public Book getBook() {
+        return book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
     }
 
     // constructor
@@ -52,7 +66,7 @@ public class Author {
     @Override
     public String toString() {
         return "Author{" +
-                "id=" + id +
+                "id=" + authorId +
                 ", name='" + name + '\'' +
                 ", active=" + active +
                 '}';
