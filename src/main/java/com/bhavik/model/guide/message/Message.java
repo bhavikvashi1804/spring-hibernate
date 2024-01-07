@@ -1,6 +1,8 @@
 package com.bhavik.model.guide.message;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -13,6 +15,8 @@ public class Message {
     @Column(name = "message_id")
     private Long id;
     @Column(name = "message_text", nullable = false)
+    @Basic(fetch = FetchType.LAZY)
+    //@JsonIgnore
     private String msgText;
 
 
